@@ -1,0 +1,86 @@
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+}
+
+.logo-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.top-bar {
+    background: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.topics-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.topic-card {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.topic-card:hover {
+    background: #e9ecef;
+}
+
+.vocabulary-table {
+    margin-bottom: 30px;
+}
+
+.vocabulary-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.vocabulary-table th,
+.vocabulary-table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+}
+
+.vocabulary-table th {
+    background: #f8f9fa;
+}
+
+.action-buttons button {
+    margin-right: 5px;
+}
