@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Modern Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            margin: 4rem 0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1e1e1e;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        /* Form Styles */
+        .demo-form {
+            max-width: 500px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Layout Demos */
+        .flex-demo {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .flex-item {
+            flex: 1;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+        }
+
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .grid-item {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+        }
+
+        /* Responsive Demo */
+        .responsive-demo {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .device {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+        }
+
+        /* Animation Demo */
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            border-radius: var(--border-radius);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--text-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-demo {
+                grid-template-columns: 1fr;
+            }
+
+            .responsive-demo {
+                flex-direction: column;
+            }
+        }
+
+        /* Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+                --card-bg: #2d2d2d;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="logo">Modern HTML & CSS</div>
+            <ul class="nav-links">
+                <li><a href="#basics">Basics</a></li>
+                <li><a href="#layout">Layout</a></li>
+                <li><a href="#responsive">Responsive</a></li>
+                <li><a href="#advanced">Advanced</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero">
+            <h1>Modern HTML & CSS Guide</h1>
+            <p class="subtitle">Comprehensive guide for modern web development</p>
+        </header>
+
+        <section id="basics" class="section">
+            <h2>1. HTML Fundamentals</h2>
+
+            <div class="card">
+                <h3>Semantic HTML5 Elements</h3>
+                <div class="code-block">
+                        <pre>
+                            <code class="language-html">
+                                &lt;header&gt; - Page header
+                                &lt;nav&gt; - Navigation
+                                &lt;main&gt; - Main content
+                                &lt;article&gt; - Independent content
+                                &lt;section&gt; - Grouped content
+                                &lt;aside&gt; - Sidebar content
+                                &lt;footer&gt; - Page footer
+                            </code>
+                        </pre>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Forms & Input Elements</h3>
+                <form class="demo-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="layout" class="section">
+            <h2>2. Modern CSS Layout</h2>
+
+            <div class="card">
+                <h3>Flexbox Layout</h3>
+                <div class="flex-demo">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>CSS Grid Layout</h3>
+                <div class="grid-demo">
+                    <div class="grid-item">Header</div>
+                    <div class="grid-item">Sidebar</div>
+                    <div class="grid-item">Main</div>
+                    <div class="grid-item">Footer</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="responsive" class="section">
+            <h2>3. Responsive Design</h2>
+
+            <div class="card">
+                <h3>Modern Media Queries</h3>
+                <div class="responsive-demo">
+                    <div class="device desktop">Desktop</div>
+                    <div class="device tablet">Tablet</div>
+                    <div class="device mobile">Mobile</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced" class="section">
+            <h2>4. Advanced Features</h2>
+
+            <div class="card">
+                <h3>CSS Custom Properties</h3>
+                <div class="custom-props-demo">
+                    <div class="theme-box primary">Primary Theme</div>
+                    <div class="theme-box secondary">Secondary Theme</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>CSS Animations</h3>
+                <div class="animation-demo">
+                    <div class="animated-box"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Modern HTML & CSS Guide</p>
+        </div>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+</body>
+</html>

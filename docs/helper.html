@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            color: #e67e22;
+            margin-top: 30px;
+        }
+
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+
+        .note {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+
+        .output {
+            color: #28a745;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h1>JavaScript Array Methods: forEach, map, filter</h1>
+
+<h2>1. forEach Method</h2>
+<p>forEach là phương thức duyệt qua từng phần tử của mảng và thực thi một hàm callback cho mỗi phần tử.</p>
+
+<div class="note">
+    Đặc điểm:
+    <ul>
+        <li>Không trả về giá trị (undefined)</li>
+        <li>Không thể dừng vòng lặp (break)</li>
+        <li>Thay đổi được mảng gốc</li>
+    </ul>
+</div>
+
+<div class="code-block">
+    const numbers = [1, 2, 3, 4, 5];
+    numbers.forEach((item, index, array) => {
+    console.log(`Phần tử ${item} tại vị trí ${index}`);
+    });
+</div>
+
+<h2>2. map Method</h2>
+<p>map tạo một mảng mới bằng cách thực thi một hàm transform trên mỗi phần tử của mảng gốc.</p>
+
+<div class="note">
+    Đặc điểm:
+    <ul>
+        <li>Trả về mảng mới có cùng độ dài</li>
+        <li>Không thay đổi mảng gốc</li>
+        <li>Thường dùng để biến đổi dữ liệu</li>
+    </ul>
+</div>
+
+<div class="code-block">
+    const numbers = [1, 2, 3, 4, 5];
+    const doubled = numbers.map(num => num * 2);
+    console.log(doubled); // [2, 4, 6, 8, 10]
+</div>
+
+<h2>3. filter Method</h2>
+<p>filter tạo mảng mới chứa các phần tử thỏa mãn điều kiện được định nghĩa trong callback function.</p>
+
+<div class="note">
+    Đặc điểm:
+    <ul>
+        <li>Trả về mảng mới chứa các phần tử thỏa điều kiện</li>
+        <li>Không thay đổi mảng gốc</li>
+        <li>Callback function phải trả về boolean</li>
+    </ul>
+</div>
+
+<div class="code-block">
+    const numbers = [1, 2, 3, 4, 5];
+    const evenNumbers = numbers.filter(num => num % 2 === 0);
+    console.log(evenNumbers); // [2, 4]
+</div>
+
+<h2>Ví dụ thực tế</h2>
+<div class="code-block">
+    const users = [
+    { id: 1, name: 'John', age: 25 },
+    { id: 2, name: 'Jane', age: 30 },
+    { id: 3, name: 'Bob', age: 20 }
+    ];
+
+    // forEach
+    users.forEach(user => {
+    console.log(`User ${user.name} is ${user.age} years old`);
+    });
+
+    // map
+    const userNames = users.map(user => user.name);
+    console.log(userNames); // ['John', 'Jane', 'Bob']
+
+    // filter
+    const adults = users.filter(user => user.age >= 25);
+    console.log(adults); // [{ id: 1, name: 'John', age: 25 }, { id: 2, name: 'Jane', age: 30 }]
+</div>
+
+<script>
+    // Live examples
+    const numbers = [1, 2, 3, 4, 5];
+
+    // forEach example
+    console.log('forEach example:');
+    numbers.forEach((num, index) => {
+        console.log(`Phần tử ${num} tại vị trí ${index}`);
+    });
+
+    // map example
+    console.log('\nmap example:');
+    const doubled = numbers.map(num => num * 2);
+    console.log('Doubled numbers:', doubled);
+
+    // filter example
+    console.log('\nfilter example:');
+    const evenNumbers = numbers.filter(num => num % 2 === 0);
+    console.log('Even numbers:', evenNumbers);
+</script>
+</body>
+</html>
