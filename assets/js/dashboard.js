@@ -37,6 +37,12 @@ function renderTopicsList() {
     `).join('');
 }
 
+// function functionName() {
+//     console.log('Xu ly logic')
+// }
+
+// functionName();
+
 function renderVocabularyTables() {
     const tablesContainer = document.getElementById('vocabularyTables');
     tablesContainer.innerHTML = vocabularyData.topics.map(topic => `
@@ -110,3 +116,31 @@ function logout() {
     localStorage.removeItem('vocabularyData');
     window.location.href = 'login.html';
 }
+
+const arrayNumber = [1, 2, 3, 4, 5];
+
+let sum = 0;
+
+for (let i = 0; i < arrayNumber.length; i++) {
+    sum = sum + arrayNumber[i];
+}
+
+arrayNumber.forEach((item, index) => {
+    sum = sum + item;
+    console.log('index', index)
+    console.log('item', item)
+})
+
+const mapResult = arrayNumber.map((item, index) => {
+    return "gia tri moi khong lien quan den gia tri cu";
+})
+
+const filterResult = arrayNumber.filter((item, index) => {
+    return item > 2; // điều kiện để phần tử trong mảng cũ xuất hiện trong mảng mới
+})
+
+console.log('filterResult', filterResult);
+console.log('mapResult', mapResult);
+
+console.log(arrayNumber)
+console.log(sum)
