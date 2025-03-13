@@ -9,18 +9,20 @@ document.getElementById('userName').textContent = currentUser.name;
 
 // Load vocabulary data
 let vocabularyData = JSON.parse(localStorage.getItem('vocabularyData'));
-if (!vocabularyData) {
-    // Initialize with default data if none exists
-    fetch('../data/vocabulary.json')
-        .then(response => response.json())
-        .then(data => {
-            vocabularyData = data;
-            localStorage.setItem('vocabularyData', JSON.stringify(data));
-            renderDashboard();
-        });
-} else {
-    renderDashboard();
-}
+
+import { vocabulary } from '../../data/vocabulary.js';
+// if (!vocabularyData) {
+//     // Initialize with default data if none exists
+//     fetch('../data/vocabulary.json')
+//         .then(response => response.json())
+//         .then(data => {
+//             vocabularyData = data;
+//             localStorage.setItem('vocabularyData', JSON.stringify(data));
+//             renderDashboard();
+//         });
+// } else {
+//     renderDashboard();
+// }
 
 function renderDashboard() {
     renderTopicsList();
